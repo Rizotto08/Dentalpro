@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { AppController } from './app.controller'; // <- импорт
 import { AuthModule } from './modules/auth/auth.module';
 import { PatientsModule } from './modules/patients/patients.module';
 import { VisitsModule } from './modules/visits/visits.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
-import { PrismaService } from './common/prisma.service';
+import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -13,8 +14,9 @@ import { PrismaService } from './common/prisma.service';
     PatientsModule,
     VisitsModule,
     DashboardModule,
+    JwtModule.register({}),
   ],
-  providers: [PrismaService],
-  exports: [PrismaService],
+  controllers: [AppController], // <- добавили
+  providers: [],
 })
 export class AppModule {}

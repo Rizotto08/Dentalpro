@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://organic-yodel-q74wvr5w9pqqf64jj-3000.app.github.dev',
   timeout: 10000,
 });
 
